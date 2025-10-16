@@ -2,60 +2,62 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text */
+    background-color: #1a1a2e; /* Deep blue/purple background */
+    color: #f0f0f0;
     text-align: center;
 }
 
 header {
-    background-color: #212121;
     padding: 30px 20px;
 }
 
 header h1 {
     margin: 0 0 10px 0;
     font-size: 2em;
-    color: #4CAF50; /* Green highlight for the title */
+    color: #00bcd4; /* Cyan highlight */
 }
 
-/* --- Countdown Box Styles --- */
-.countdown-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px 20px;
+.days-remaining {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 30px auto;
+    color: #4CAF50; /* Green text */
 }
 
-.box-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 150px; /* Fixed width for the box */
-}
-
-.box-number {
-    background-color: #4CAF50; /* Green box color */
-    color: white;
-    font-size: 4em;
+#day-count {
+    font-size: 2em;
     font-weight: bold;
-    padding: 20px 10px;
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.1s;
-    /* This is the key: only the number shows prominently */
+    color: #f0f0f0;
 }
 
-.box-label {
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #888;
-    text-transform: uppercase;
+/* --- Block Container Styles --- */
+.blocks-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows blocks to wrap to the next row */
+    justify-content: center;
+    max-width: 1200px; /* Limits the width of the block area */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.day-block {
+    width: 20px; /* Size of the block */
+    height: 20px;
+    background-color: #ffc107; /* Yellow/Amber color */
+    margin: 3px; /* Space between blocks */
+    border-radius: 2px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out; /* Smooth fade when hidden */
+}
+
+.hidden-block {
+    opacity: 0.1; /* Almost invisible when a day passes */
+    background-color: #dc3545; /* Red color for passed days */
 }
 
 footer {
     padding: 20px;
     margin-top: 50px;
-    color: #555;
-    font-size: 1em;
+    color: #777;
+    font-size: 0.9em;
 }
