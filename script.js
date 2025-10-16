@@ -1,44 +1,58 @@
 // --- 1. MANUALLY SET YOUR DESIRED DATE AND TIME HERE ---
 // Format: "Month Day, Year Hour:Minute:Second"
-// Example: "May 25, 2026 09:00:00"
-const targetDateString = "January 20, 2026 09:00:00"; 
+// Tentative JEE Advanced 2026 Date
+const TARGET_DATE = new Date("January 20, 2026 09:00:00").getTime();
 // ----------------------------------------------------
 
-const targetDate = new Date(targetDateString).getTime();
+const container = document.getElementById('blocks-container');
+const dayCountDisplay = document.getElementById('day-count');
+const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-// Display the target date on the page
-document.getElementById('target-date').textContent = new Date(targetDate).toLocaleDateString();
-
-function updateCountdown() {
+function calculateDaysRemaining() {
     const now = new Date().getTime();
-    const distance = targetDate - now;
+    
+    // Time remaining in milliseconds
+    let distance = TARGET_DATE - now;
 
-    // Check if the countdown has finished
-    if (distance < 0) {
-        clearInterval(countdownInterval);
-        document.getElementById("days").textContent = "J-E-E";
-        document.getElementById("hours").textContent = "O-N";
-        document.getElementById("minutes").textContent = "T-O-P";
-        document.getElementById("seconds").textContent = "L-I-N-E";
-        return;
+    // The key calculation: The number of full days left, rounded UP.
+    // If we have 2.5 days left, we need 3 blocks.
+    const totalDaysRemaining = Math.ceil(distance / MS_PER_DAY);
+    
+    // The total number of days from today until the target date
+    const totalDurationDays = Math.ceil((TARGET_DATE - new Date().setHours(0, 0, 0, 0)) / MS_PER_DAY) + 1;
+    
+    // If countdown is over
+    if (distance <= 0) {
+        dayCountDisplay.textContent = "0";
+        container.innerHTML = '<h2>Time to Shine! ✨</h2>';
+        return 0;
     }
 
-    // Calculations for time units
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Function to ensure numbers have leading zeros (e.g., 5 -> 05)
-    const pad = (num) => String(num).padStart(2, '0');
-
-    // Update the HTML elements (the boxes)
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = pad(hours);
-    document.getElementById("minutes").textContent = pad(minutes);
-    document.getElementById("seconds").textContent = pad(seconds);
+    // Update the simple numerical display
+    dayCountDisplay.textContent = totalDaysRemaining;
+    return totalDaysRemaining;
 }
 
-// Update the countdown immediately and then every 1 second
-updateCountdown();
-const countdownInterval = setInterval(updateCountdown, 1000);
+function generateDayBlocks() {
+    // Clear any existing blocks
+    container.innerHTML = '';
+    
+    const totalDays = calculateDaysRemaining();
+    
+    // Determine the total number of blocks we should show (remaining days + passed days)
+    // We use a fixed start date (e.g., today) to figure out how many blocks *should* be there.
+    // For simplicity and alignment with your request, we only create blocks for remaining days.
+    
+    for (let i = 0; i < totalDays; i++) {
+        const block = document.createElement('div');
+        block.classList.add('day-block');
+        // Optional: you could add a tooltip to the block to show the day number
+        // block.title = `Day ${i + 1} remaining`; 
+        container.appendChild(block);
+    }
+}
+
+// Run this immediately and then only once a day (since the display is only based on days)
+// However, we run it every 60 seconds to ensure the display is fairly up-to-date even if the user leaves the page open.
+generateDayBlocks();
+setInterval(generateDayBlocks, 60000); // Check and re-render blocks every minute
