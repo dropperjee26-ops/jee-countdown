@@ -1,0 +1,61 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    text-align: center;
+}
+
+header {
+    background-color: #212121;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2em;
+    color: #4CAF50; /* Green highlight for the title */
+}
+
+/* --- Countdown Box Styles --- */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+}
+
+.box-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px; /* Fixed width for the box */
+}
+
+.box-number {
+    background-color: #4CAF50; /* Green box color */
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+    padding: 20px 10px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.1s;
+    /* This is the key: only the number shows prominently */
+}
+
+.box-label {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #888;
+    text-transform: uppercase;
+}
+
+footer {
+    padding: 20px;
+    margin-top: 50px;
+    color: #555;
+    font-size: 1em;
+}
