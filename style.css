@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f1ede7; /* Deep blue/purple background */
+    background-color: #000000; /* Deep blue/purple background */
     color: #f0f0f0;
     text-align: center;
 }
@@ -35,15 +35,15 @@ header h1 {
     display: flex;
     flex-wrap: wrap; /* Allows blocks to wrap to the next row */
     justify-content: center;
-    max-width: 1000px; /* Limits the width of the block area */
+    max-width: 900px; /* Limits the width of the block area */
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px;
 }
 
 .day-block {
     width: 30px; /* Size of the block */
     height: 30px;
-    background-color: #59fc53; /* Yellow/Amber color */
+    background-color: #84ff46; /* Yellow/Amber color --> */ 
     margin: 3px; /* Space between blocks */
     border-radius: 2px;
     opacity: 1;
