@@ -1,7 +1,7 @@
 // --- 1. MANUALLY SET YOUR DESIRED DATE AND TIME HERE ---
 // Format: "Month Day, Year Hour:Minute:Second"
 // Example: "May 25, 2026 09:00:00"
-const targetDateString = "May 25, 2026 09:00:00"; 
+const targetDateString = "January 20, 2026 09:00:00"; 
 // ----------------------------------------------------
 
 const targetDate = new Date(targetDateString).getTime();
