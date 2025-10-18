@@ -63,7 +63,4 @@ footer {
 }
 
 
-/* Hides the numerical day count text while allowing JavaScript to use the element */
-.days-remaining {
-    display: none;
-}
+
