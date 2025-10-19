@@ -14,7 +14,7 @@ header {
 header h1 {
     margin: 0 0 10px 0;
     font-size: 2em;
-    background-color: #b3b3b3;
+    background-color: #1a1a1a; /*Background colour Jee main countdown ke peeche wala */
     color: #00bcd4; /* Cyan highlight */
 }
 
