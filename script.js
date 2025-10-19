@@ -1,7 +1,7 @@
 // --- 1. MANUALLY SET YOUR DESIRED DATE AND TIME HERE ---
 // Format: "Month Day, Year Hour:Minute:Second"
 // Tentative JEE Advanced 2026 Date
-const TARGET_DATE = new Date("January 20, 2026 09:00:00").getTime();
+const TARGET_DATE = new Date("January 1, 2026 00:00:00").getTime();
 // ----------------------------------------------------
 
 const container = document.getElementById('blocks-container');
@@ -24,7 +24,7 @@ function calculateDaysRemaining() {
     // If countdown is over
     if (distance <= 0) {
         dayCountDisplay.textContent = "0";
-        container.innerHTML = '<h2>Time to Shine! ✨</h2>';
+        container.innerHTML = '<h2>Yahi Raat Antim Yahi Raat Bhaari 😂</h2>';
         return 0;
     }
 
